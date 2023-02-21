@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { path } from 'app-root-path'
 import { ensureDir, writeFile } from 'fs-extra'
 import { FileResponse } from './dto/file.response'
+import {Express} from "express";
 
 @Injectable()
 export class FilesService {
