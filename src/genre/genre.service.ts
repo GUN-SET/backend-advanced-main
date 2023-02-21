@@ -59,6 +59,8 @@ export class GenreService {
 			genres.map(async (genre) => {
 				const moviesByGenre = await this.movieService.byGenres([genre._id])
 
+				if (moviesByGenre.length == 0) return  null
+
 				const result: ICollection = {
 					_id: String(genre._id),
 					title: genre.name,
@@ -70,7 +72,7 @@ export class GenreService {
 			})
 		)
 
-		return collections
+		return collections.filter(el => el !== null)
 	}
 
 	/* Admin area */
